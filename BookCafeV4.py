@@ -63,6 +63,7 @@ def main():
                 customer_menu()
                 customer_choice = input("Enter your choice: ")
                 if customer_choice == "1":
+                    menu.display_menu('food')
                     menu.display_menu("books")
                 elif customer_choice == "2":
                     menu.place_order("books")
