@@ -9,7 +9,7 @@ import json
 #      {"id": 6, "name": "Coke", "price": 1.80, "category":"Drink"}
 #  ]
 
-#grabs what it needs out of the json
+#grabs what it needs out of the json!
 menu_items = r'menu_list.json'
 with open(menu_items, 'r') as json_file:
     menu = json.load(json_file)
@@ -25,6 +25,7 @@ def display_menu():
     print("-----------------\n")
  
 def place_order():
+    global menu
     display_menu()
     order_items = []
    
@@ -61,6 +62,7 @@ def place_order():
         print(f"- {item['name']} (£{item['price']})")
  
 def manage_menu():
+    global menu
     while True:
         print("\n--- Manage Cafe Menu ---")
         print("1. Add Item")
@@ -78,6 +80,8 @@ def manage_menu():
  
             new_id = max(item["id"] for item in menu) + 1
             menu.append({"id": new_id, "name": name, "price": price, "category": category})
+            with open(menu_items, 'w') as json_file:
+                json.dump(menu,json_file)
             print(f"{name} added to the menu!")
  
         elif choice == "2":
@@ -89,6 +93,8 @@ def manage_menu():
                 item["name"] = input(f"New name ({item['name']}): ") or item["name"]
                 item["price"] = float(input(f"New price (£{item['price']}): ") or item["price"])
                 item["category"] = input(f"New category ({item['category']}): ") or item["category"]
+                with open(menu_items, 'w') as json_file:
+                    json.dump(menu,json_file)
                 print("Item updated successfully!")
             else:
                 print("Item not found.")
@@ -98,6 +104,9 @@ def manage_menu():
             item_id = int(input("Enter item ID to remove: "))
             menu
             menu = [item for item in menu if item["id"] != item_id]
+            #Edits the json to reflect the newly edited menu
+            with open(menu_items, 'w') as json_file:
+                json.dump(menu,json_file)
             print("Item removed.")
  
         elif choice == "4":
