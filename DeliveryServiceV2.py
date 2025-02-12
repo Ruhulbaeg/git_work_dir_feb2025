@@ -7,12 +7,15 @@ customerList = r'customer_list.json'
 # I'm starting this with an example json with 2 customers already there.
 customerNumber = 2
 
+#A quick function that views all active orders.
 def ViewDeliveries():
     with open (customerList, 'r') as json_file:
         loaded_data = json.load(json_file)
     print(json.dumps(loaded_data, indent=4))
 
+#This delivery function allows the user total control, like entering a custom order into the database.
 def DeliveryStart():
+    #This function has the deliveryMode act a bit like a 'while True' system.
     deliveryMode = True
     while deliveryMode == True:
         userInput = input("\nWelcome to the delivery system!\nType 'Quit' to go back.\nType 'View All' to view all active orders.\nType 'Add' to add a new customer.")
@@ -35,10 +38,10 @@ def DeliveryStart():
                         "location":newCustomerAddress
                     }
                 }
-                #Gets the customer input from json
+                #Gets the customer dict from json
                 with open(customerList, 'r') as json_file:
                     existingCustomerList = json.load(json_file)
-                #Merges the existing customer dict with the new customer dict 
+                #Merges the existing customer dict, with the new customer dict 
                 existingCustomerList = existingCustomerList | newCustomerDetails
                 
                 #Overwrites the previous customer dict with the newest version
@@ -47,7 +50,7 @@ def DeliveryStart():
         else:
             print("I don't recognise that command, sorry. Try again!\n")
 
-
+#This function is a condensed version of the one above and is designed to be customer-facing, instead of employee facing.
 def PlaceBookOrder():
      #Makes a new customer dictionary based on user input.
         global customerNumber
@@ -74,6 +77,8 @@ def PlaceBookOrder():
         with open (customerList, 'w') as json_file:
             json.dump(existingCustomerList,json_file)
 
+
+#This function is even more condensed and designed to be entirely backend, giving the user no visible output. It also takes in the necessary stuff for the order as parameters.
 def QuickOrder(name, order, address):
      #Makes a new customer dictionary based on user input.
         global customerNumber

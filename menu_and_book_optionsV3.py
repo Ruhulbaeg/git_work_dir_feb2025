@@ -1,7 +1,7 @@
 import json
  
 menu = r"menu_list.json"
-books = r"books_placeholder.json"
+books = r"book-list.json"
 def employee_menu():
     print("Returning to the employee menu")
     employee_options()  # Now we redirect back to options
