@@ -30,15 +30,9 @@ def load_data():
     return menu_items, book_list, customer_data, customer_list
  
 def display_main_menu():
-    print("1. Customer")
+    print("1. Visit Cafe")
     print("2. Employee")
     print("3. Delivery System")
-    print("4. Exit")
- 
-def customer_menu():
-    print("1. View Menu and Books")
-    print("2. Order Books")
-    print("3. Order Food")
     print("4. Exit")
  
 def employee_menu():
@@ -59,20 +53,7 @@ def main():
         display_main_menu()
         user_choice = input("Enter your choice: ")
         if user_choice == "1":  # Customer
-            while True:
-                customer_menu()
-                customer_choice = input("Enter your choice: ")
-                if customer_choice == "1":
-                    menu.display_menu('food')
-                    menu.display_menu("books")
-                elif customer_choice == "2":
-                    menu.place_order("books")
-                elif customer_choice == "3":
-                    menu.main()
-                elif customer_choice == "4":
-                    break
-                else:
-                    print("Invalid choice.")
+            menu.main()
         elif user_choice == "2":  # Employee
             while True:
                 employee_menu()

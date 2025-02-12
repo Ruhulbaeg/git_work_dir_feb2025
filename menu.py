@@ -141,7 +141,8 @@ def main():
         choice = input("Select an option: ")
  
         if choice == "1":
-            display_menu()
+            display_menu("food")
+            display_menu("books")
         elif choice == "2":
             customerInput = input("What would you like to order? Type 'books' or 'food'.")
             if customerInput == "food":
