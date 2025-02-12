@@ -1,0 +1,8 @@
+[
+    {"id": 1, "name": "Coffee", "price": 2.50, "category": "Drink"},
+    {"id": 2, "name": "Tea", "price": 2.00, "category": "Drink"},
+    {"id": 3, "name": "Sandwich", "price": 5.00, "category": "Food"},
+    {"id": 4, "name": "Cake", "price": 3.50, "category": "Food"},
+    {"id": 5, "name": "Crossaint", "price": 1.50, "category":"Food"},
+    {"id": 6, "name": "Coke", "price": 1.80, "category":"Drink"}
+]
