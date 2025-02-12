@@ -29,17 +29,18 @@ def load_data():
     customer_list = load_json(data_files["customer_list"])
     return menu_items, book_list, customer_data, customer_list
  
+#Function that displays the main menu
 def display_main_menu():
     print("1. Visit Cafe")
     print("2. Employee")
     print("3. Delivery System")
     print("4. Exit")
  
+ #
 def employee_menu():
     print("1. Update Menu and Books")
-    print("2. Update Specials")
-    print("3. View Orders")
-    print("4. Exit")
+    print("2. View Orders")
+    print("3. Exit")
  
 def delivery_menu():
     print("1. View All Active Orders")
@@ -52,21 +53,17 @@ def main():
     while True:
         display_main_menu()
         user_choice = input("Enter your choice: ")
-        if user_choice == "1":  # Customer
+        if user_choice == "1":  # Customer. Goes straight to menu.py's main loop.
             menu.main()
-        elif user_choice == "2":  # Employee
+        elif user_choice == "2":  # Employee. Can go to either menu and book's editing features or deliveryservice's ViewDelivieries.
             while True:
                 employee_menu()
                 employee_choice = input("Enter your choice: ")
                 if employee_choice == "1":
-                    print("Update Menu and Books")
                     menu_and_book_optionsV3.employee_options()
                 elif employee_choice == "2":
-                    print("Update Specials")
+                    DeliveryServiceV2.ViewDeliveries()
                 elif employee_choice == "3":
-                    print("View Orders")
-                    print(json.dumps(customer_list, indent=4))
-                elif employee_choice == "4":
                     break
                 else:
                     print("Invalid choice.")

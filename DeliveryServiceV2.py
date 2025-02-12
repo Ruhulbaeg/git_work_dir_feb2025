@@ -7,6 +7,11 @@ customerList = r'customer_list.json'
 # I'm starting this with an example json with 2 customers already there.
 customerNumber = 2
 
+def ViewDeliveries():
+    with open (customerList, 'r') as json_file:
+        loaded_data = json.load(json_file)
+    print(json.dumps(loaded_data, indent=4))
+
 def DeliveryStart():
     deliveryMode = True
     while deliveryMode == True:
@@ -14,9 +19,7 @@ def DeliveryStart():
         if userInput.lower() == 'quit':
             deliveryMode = False
         elif userInput.lower() == 'view all':
-            with open (customerList, 'r') as json_file:
-                loaded_data = json.load(json_file)
-            print(loaded_data)
+            ViewDeliveries()
         elif userInput.lower() == 'add':
                 #Makes a new customer dictionary based on user input.
                 global customerNumber
