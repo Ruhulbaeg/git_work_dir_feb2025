@@ -1,6 +1,6 @@
 import json
 
-customerList = r'Cafe Book Project/customer_list.json'
+customerList = r'customer_list.json'
 
 def customer_menu_options():
     options = input("""Would you like to view a list of customers or exit?\n
