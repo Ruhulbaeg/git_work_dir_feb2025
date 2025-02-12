@@ -63,10 +63,9 @@ def main():
                 customer_menu()
                 customer_choice = input("Enter your choice: ")
                 if customer_choice == "1":
-                    menu.display_menu()
-                    print("Books:", book_list)
+                    menu.display_menu("books")
                 elif customer_choice == "2":
-                    DeliveryServiceV2.PlaceBookOrder()
+                    menu.place_order("books")
                 elif customer_choice == "3":
                     menu.main()
                 elif customer_choice == "4":
