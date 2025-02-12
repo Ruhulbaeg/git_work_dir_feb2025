@@ -2,13 +2,14 @@ import json
  
 menu = r"menu_list.json"
 books = r"books_placeholder.json"
- 
 def employee_menu():
     print("Returning to the employee menu")
     employee_options()  # Now we redirect back to options
  
+
 def employee_options():
-    while True:
+    menuAndBookMode = True
+    while menuAndBookMode == True:
         options = input("""Would you like to update the menu or book options? \n 
             1. Books\n
             2. Menu\n
@@ -31,10 +32,10 @@ def employee_options():
             print("Redirecting to Menu file...")
         elif options.lower() == "return" or options == "3":
             employee_menu()
-            break
+            menuAndBookMode = False
         elif options.lower() == "exit" or options == "4":
             print("Exiting...")
-            break
+            menuAndBookMode = False
         else:
             print("Please enter a valid option.")
  
@@ -116,6 +117,3 @@ def updateDict(filepath):
     # **Save the updated data back to the JSON file**
     with open(filepath, 'w') as file:
         json.dump(data, file, indent=4)
- 
-# Start the menu
-employee_options()
