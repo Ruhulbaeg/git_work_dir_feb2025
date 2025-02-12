@@ -19,3 +19,5 @@ def customer_menu_options():
 
 
 customer_menu_options()
+
+employee_menu()
