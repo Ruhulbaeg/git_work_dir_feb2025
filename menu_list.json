@@ -1,3 +1,4 @@
+[
 {"id": 1, "name": "Coffee", "price": 2.50, "category": "Drink"},
     {"id": 2, "name": "Tea", "price": 2.00, "category": "Drink"},
     {"id": 3, "name": "Sandwich", "price": 5.00, "category": "Food"},
@@ -22,3 +23,4 @@
     {"id": 22, "name": "Hot Chocolate", "price": 3.99, "category": "Drink"},
     {"id": 23, "name": "Mineral Water", "price": 1.99, "category": "Drink"},
     {"id": 24, "name": "Energy Drink", "price": 5.49, "category": "Drink"}
+]
