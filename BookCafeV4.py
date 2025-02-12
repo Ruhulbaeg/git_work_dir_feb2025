@@ -5,8 +5,8 @@ import menu_and_book_optionsV3
 
 # File paths for JSON storage
 data_files = {
-    "menu": "menu.json",
-    "books": "books.json",
+    "menu": "menu_list.json",
+    "books": "book-list.json",
     "customers": "customers.json",
     "customer_list": "customer_list.json"
 }
@@ -63,7 +63,7 @@ def main():
                 customer_menu()
                 customer_choice = input("Enter your choice: ")
                 if customer_choice == "1":
-                    print("Food and Drinks:", menu_items)
+                    menu.display_menu()
                     print("Books:", book_list)
                 elif customer_choice == "2":
                     DeliveryServiceV2.PlaceBookOrder()

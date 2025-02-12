@@ -51,7 +51,7 @@ def PlaceBookOrder():
         customerNumber += 1
         newCustomerAlias = "customer"+(str(customerNumber))
         newCustomerName = input("\nPlease enter your name!")
-        newCustomerOrder = input("\nPlease enter what you'd like to order!")
+        newCustomerOrder = input("\nPlease enter the book you'd like to order!")
         newCustomerAddress = input("\nPlease enter your full address!")
         newCustomerDetails = {
             newCustomerAlias:{
@@ -70,3 +70,29 @@ def PlaceBookOrder():
         #Overwrites the previous customer dict with the newest version
         with open (customerList, 'w') as json_file:
             json.dump(existingCustomerList,json_file)
+
+def QuickOrder(name, order, address):
+     #Makes a new customer dictionary based on user input.
+        global customerNumber
+        customerNumber += 1
+        newCustomerAlias = "customer"+(str(customerNumber))
+        newCustomerName = name
+        newCustomerOrder = order
+        newCustomerAddress = address
+        newCustomerDetails = {
+            newCustomerAlias:{
+                "name":newCustomerName,
+                "order":newCustomerOrder,
+                "location":newCustomerAddress
+            }
+        }
+        #Gets the customer input from json
+        with open(customerList, 'r') as json_file:
+            existingCustomerList = json.load(json_file)
+        #Merges the existing customer dict with the new customer dict 
+        existingCustomerList = existingCustomerList | newCustomerDetails
+                
+        #Overwrites the previous customer dict with the newest version
+        with open (customerList, 'w') as json_file:
+            json.dump(existingCustomerList,json_file)
+
